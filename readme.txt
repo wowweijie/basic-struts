@@ -5,12 +5,11 @@
 ... connect to mysql server using: localhost:3306 
 .... run login.sql (refer more details in the sql file)
 
-To successfully login, enter below username & password:
-'wangye', 'wy123'
-'weijie', 'wj456'
-'Jordan', 'jt789'
-
-
-
 
 2.server setup steps:
+. run configuration (mvn jetty:run)
+.. open browser and key in address: http://localhost:8080/struts-test/index.jsp
+... To successfully login, enter below username & password:
+	'wangye', 'wy123'
+	'weijie', 'wj456'
+	'Jordan', 'jt789'
