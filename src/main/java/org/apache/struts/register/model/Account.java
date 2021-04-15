@@ -45,7 +45,7 @@ public class Account {
 
             // Attempt to connect to database
             Connection connect = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/usersdb", "root", "S1728788e");
+                    "jdbc:mysql://localhost:3306/usersdb", "root", "root");
 
             // Setup mySQL authentication query
             PreparedStatement statement = connect.prepareStatement(
