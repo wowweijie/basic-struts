@@ -16,18 +16,23 @@ public class Login extends ActionSupport {
     private Account accountBean;
 
 
-    public String execute() throws Exception {
+    public String execute(){
         //call Service class to store personBean's state in database
-
-        return SUCCESS;
+        if(accountBean.validate()){
+            return SUCCESS;
+        }
+        else {
+            // Return action error message
+            addActionError("Invalid username / password");
+            return ERROR;
+        }
     }
 
     public Account getAccountBean() {
         return accountBean;
     }
 
-    public void setPersonBean(Account accountBean) {
-        accountBean = accountBean;
+    public void setAccountBean(Account accountBean) {
+        this.accountBean = accountBean;
     }
-
 }

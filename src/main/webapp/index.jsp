@@ -8,7 +8,6 @@
   </head>
   <body>
     <h1>Welcome To Struts 2!</h1>
-    <p><a href="<s:url action='hello'/>">Hello World</a></p>
     <p><a href="login.jsp">Click here to login</a></p>
   </body>
 </html>

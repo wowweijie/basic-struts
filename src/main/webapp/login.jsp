@@ -1,19 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Login</title>
+    <meta charset="ISO-8859-1">
+    <title>LOGIN!</title>
+    <s:head/>
 </head>
 <body>
-<h3>Simple Login Interface
-</h3>
-
+<!-- Login form that redirects to loginProcess action once submitted -->
+<h1>Login</h1>
 <s:form action="login">
-    <s:textfield name="accountBean.username" label="Username" />
-    <s:textfield name="accountBean.password" label="Password" />
-    <s:submit/>
+    <s:textfield label="Username" name="accountBean.username" align="center"/>
+    <s:password label="Password" name="accountBean.password" align="center"/>
+    <s:submit align="center"/>
 </s:form>
+
+<!-- Action error that only appears if user credentials are wrong. -->
+<s:actionerror style="color: red"/>
+
 </body>
 </html>

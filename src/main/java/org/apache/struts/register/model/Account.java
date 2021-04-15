@@ -1,6 +1,11 @@
 package org.apache.struts.register.model;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  * Models a Person who registers.
  * @author wongweijie
@@ -28,5 +33,35 @@ public class Account {
 
     public String toString() {
         return getUsername();
+    }
+
+    public boolean validate(){
+
+        boolean ret = false;
+
+        try {
+            // Load the mySQL driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Attempt to connect to database
+            Connection connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/usersdb", "root", "S1728788e");
+
+            // Setup mySQL authentication query
+            PreparedStatement statement = connect.prepareStatement(
+                    "SELECT * FROM usersdb.login WHERE username = ? AND password = ?");
+
+            statement.setString(1, this.username);
+            statement.setString(2, this.password);
+
+            // Execute query, get result of query
+            ResultSet results = statement.executeQuery();
+
+            ret = results.next();
+
+
+        } catch(Exception e) {e.printStackTrace();}
+
+        return ret;
     }
 }
